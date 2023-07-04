@@ -1,83 +1,64 @@
-A simple Tallstack e-commerce application with [filamentphp](https://filamentphp.com) admin panel. Though the script is simple but there are some basic implementation of advanced start. Multilingual, Multi Currency, Stripe Payment API with Webhook integration.
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-The Project is still under development and subjected to heavy change over the time and some functionality may not be perfectly work in different situation.
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-### Preview
-![Banner](https://raw.githubusercontent.com/sahapranta/tall_ecommerce/main/screenshots/tall_ecommerce_preview.jpg)
-<video src="screenshots/preview.mp4" controls title="Preview Checkout"></video>
+## About Laravel
 
-### For installation use
-```bash
-composer install
-npm install && npm run dev
-```
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-### External API
-`.env` file contains a `CURRENCY_EXCHANGE_API_KEY` which can be found on [Exchange Rates Data API](https://apilayer.com/marketplace/exchangerates_data-api) as FREE
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Also set Stripe API KEY and also google recaptcha v3 api.
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Learning Laravel
 
-```bash
-php artisan migrate --seed
-php artisan serve
-```
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-The basic seeder will seed the database with a test user
+## Laravel Sponsors
 
-- user: `test@example.com`
-- password: `password`
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-## Todo
+### Premium Partners
 
-### FRONTEND
----
-- [x] Display Product
-- [x] Switch Language
-- [x] Switch Currency
-- [x] Product View
-- [x] Product Image Media
-- [x] Cart (Session & DB)
-- [x] Promo Code (Session & DB)
-- [x] Checkout
-- [x] Payment
-- [x] Stripe API and Webhook Integration
-- [x] Checkout Customer Address Choice
-- [x] Purchase Success, Failed, Confirmed
-- [ ] Category Filter
-- [ ] Search Functionality
-- [ ] Static Pages
-- [ ] Email- Confirm Order, Invoice, Delivery
-- [x] Subscription
-- [x] Google Recaptcha
-- [ ] Prodouct Reviews
-- [ ] Blog
-- [ ] Blog Comments
-- [ ] SEO Optimization
-
-
-### ADMIN
----
-- [x] Manage Currency
-- [x] Manage Static Pages
-- [x] Manage Category
-- [x] Manage Product
-- [x] Manage Product Variation
-- [x] Manage Coupon
-- [ ] Manage Customer & Address
-- [ ] Manage Order
-- [ ] Dashboard Analytics
-- [x] Manage Subscriber
-- [ ] Manage Email
-- [ ] Manage Blog
-
-
-
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+## Code of Conduct
+
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
-[MIT license](https://opensource.org/licenses/MIT).
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
