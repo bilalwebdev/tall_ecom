@@ -285,6 +285,11 @@
             </div>
         </div>
 
+        <div class="ml-12 w-full flex justify-center items-center">
+            {{ $products->links() }}
+        </div>
+
+
         <!-- ./products -->
     </div>
 </div>

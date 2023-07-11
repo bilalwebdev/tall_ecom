@@ -69,7 +69,7 @@ class Shop extends Component
 
         if ($selected_categories) {
 
-            dd($selected_categories);
+
 
             $products->whereHas('category', function ($query) use ($selected_categories) {
 

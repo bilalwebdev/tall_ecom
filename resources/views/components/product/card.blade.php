@@ -2,7 +2,7 @@
 
 
 <div
-    class="overflow-hidden transition-all bg-white hover:shadow-xl  rounded shadow group hover:border duration-300 hover:saturate-100">
+    class="overflow-hidden transition-all duration-300 bg-white rounded shadow dark:bg-gray-700 hover:shadow-xl group hover:border hover:saturate-100">
     <div class="relative">
         @if ($featuredImage = $product->featuredImage)
             <img alt="product 1" class="w-full" src="{{ $featuredImage->getUrl() }}"
@@ -15,7 +15,8 @@
     </div>
     <div class="px-4 pt-4 pb-3">
         <a href="{{ route('product.view', $product->slug) }}">
-            <h4 class="mb-2 text-xl font-medium text-gray-800 uppercase transition hover:text-rose-600">
+            <h4
+                class="mb-2 text-xl font-medium text-gray-800 uppercase transition dark:text-gray-200 hover:text-rose-600">
                 {{ Str::limit($product->title, 15) }}</h4>
         </a>
         <div class="flex items-baseline mb-1 space-x-2">

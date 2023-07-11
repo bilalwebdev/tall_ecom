@@ -24,7 +24,7 @@ Route::group([
 ], function () {
     Route::get('/', function () {
 
-        $products = \App\Models\Product::with(['featuredImage', 'variant', 'variant.options'])->paginate(15);
+        $products = \App\Models\Product::paginate(15);
         $categories = Category::whereNull('parent_id')->take(6)->get();
         return view('home', compact('products', 'categories'));
     });

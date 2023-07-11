@@ -72,7 +72,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 
     public function customer(): HasOne
     {
-        return $this->hasOne(Customer::class)->withDefault();
+        return $this->hasOne(Customer::class);
     }
 
     public function product()

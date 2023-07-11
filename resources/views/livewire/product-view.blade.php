@@ -71,9 +71,9 @@
                 </div>
                 <div class="flex align-center ">
                     <p class="text-4xl font-bold tracking-tight text-green-900 dark:text-gray-100">{{format_money($variant->final_price)}}</p>
-                    <p class="ml-3 text-base font-bold text-gray-500"><span class="pr-1 line-through">{{format_money($variant->sale_price)}}</span>({{$variant->save_percent}} {{__('common.save')}})</p>
+                    <p class="ml-3 text-base font-bold text-gray-500 dark:text-gray-100"><span class="pr-1 line-through">{{format_money($variant->sale_price)}}</span>({{$variant->save_percent}} {{__('common.save')}})</p>
                 </div>
-                <p class="text-xs text-gray-500">{{ __('product.local_tax_included') }}</p>
+                <p class="text-xs text-gray-500 dark:text-gray-100">{{ __('product.local_tax_included') }}</p>
             </div>
 
             @foreach ($variant_options as $key => $options)
@@ -120,7 +120,7 @@
             @endforeach
 
             <div class="flex mt-6">
-                <button type="submit" @click.prevent="Livewire.emit('addToCart', '{{$variant->id}}')" class="flex items-center justify-center flex-1 max-w-xs px-8 py-3 text-base font-medium text-white bg-rose-600 border border-transparent rounded-md hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">{{__('product.add_to_cart')}}</button>
+                <button type="submit" @click.prevent="Livewire.emit('addToCart', '{{$variant->id}}')" class="flex items-center justify-center flex-1 max-w-xs px-8 py-3 text-base font-medium text-white border border-transparent rounded-md bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">{{__('product.add_to_cart')}}</button>
 
                 <button type="button" class="flex items-center justify-center px-3 py-3 ml-4 text-white bg-red-500 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-50">
                     <span class="hidden mr-2 text-base sm:block">{{__('product.add_to_favourite')}}</span>
@@ -136,7 +136,7 @@
     <section aria-labelledby="product-description">
         <div class="mt-10">
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-50">Description</h2>
-            <div class="mt-4 text-base prose-sm prose text-gray-600 dark:text-gray-100">
+            <div class="mt-4 text-base prose-sm prose text-gray-600 dark:text-gray-400">
                 <p>{!! $product->description !!}</p>
             </div>
         </div>
@@ -155,7 +155,7 @@
                     </svg>
                     <span class="mt-4 text-sm font-medium text-gray-900 dark:text-gray-100">International delivery</span>
                 </dt>
-                <dd class="mt-1 text-sm text-gray-500 dark:text-gray-200">Get your order in 2 years</dd>
+                <dd class="mt-1 text-sm text-gray-500 dark:text-gray-100 dark:text-gray-200">Get your order in 2 years</dd>
             </div>
 
             <div class="p-6 text-center border border-gray-200 rounded-lg dark:border-gray-400 bg-gray-50 dark:bg-gray-600">
@@ -165,7 +165,7 @@
                     </svg>
                     <span class="mt-4 text-sm font-medium text-gray-900 dark:text-gray-100">International delivery</span>
                 </dt>
-                <dd class="mt-1 text-sm text-gray-500 dark:text-gray-200">Get your order in 2 years</dd>
+                <dd class="mt-1 text-sm text-gray-500 dark:text-gray-100 dark:text-gray-200">Get your order in 2 years</dd>
             </div>
 
             <div class="p-6 text-center border border-gray-200 rounded-lg dark:border-gray-400 bg-gray-50 dark:bg-gray-600">
@@ -175,7 +175,7 @@
                     </svg>
                     <span class="mt-4 text-sm font-medium text-gray-900 dark:text-gray-100">Loyalty rewards</span>
                 </dt>
-                <dd class="mt-1 text-sm text-gray-500 dark:text-gray-200">Don't look at other tees</dd>
+                <dd class="mt-1 text-sm text-gray-500 dark:text-gray-100 dark:text-gray-200">Don't look at other tees</dd>
             </div>
             <div class="p-6 text-center border border-gray-200 rounded-lg dark:border-gray-400 bg-gray-50 dark:bg-gray-600">
                 <dt>
@@ -184,7 +184,7 @@
                     </svg>
                     <span class="mt-4 text-sm font-medium text-gray-900 dark:text-gray-100">Loyalty rewards</span>
                 </dt>
-                <dd class="mt-1 text-sm text-gray-500 dark:text-gray-200">Don't look at other tees</dd>
+                <dd class="mt-1 text-sm text-gray-500 dark:text-gray-100 dark:text-gray-200">Don't look at other tees</dd>
             </div>
 
         </dl>
@@ -326,7 +326,7 @@
 
                 <div class="mt-10">
                     <h3 class="text-lg font-medium text-gray-900">{{__('product.share_thoughts')}}</h3>
-                    <p class="mt-1 text-sm text-gray-600">{{__('product.if_you_used')}}</p>
+                    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{{__('product.if_you_used')}}</p>
 
                     <a href="#" class="inline-flex items-center justify-center w-full px-8 py-2 mt-6 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-md hover:bg-gray-50 sm:w-auto lg:w-full">{{__('product.write_review')}}</a>
                 </div>
@@ -370,7 +370,7 @@
                                 </div>
                             </div>
 
-                            <div class="mt-4 space-y-6 text-base italic text-gray-600">
+                            <div class="mt-4 space-y-6 text-base italic text-gray-600 dark:text-gray-400">
                                 <p>This is the bag of my dreams. I took it on my last vacation and was able to fit an absurd amount of snacks for the many long and hungry flights.</p>
                             </div>
                         </div>
@@ -407,7 +407,7 @@
                                 </div>
                             </div>
 
-                            <div class="mt-4 space-y-6 text-base italic text-gray-600">
+                            <div class="mt-4 space-y-6 text-base italic text-gray-600 dark:text-gray-400">
                                 <p>Before getting the Ruck Snack, I struggled my whole life with pulverized snacks, endless crumbs, and other heartbreaking snack catastrophes. Now, I can stow my snacks with confidence and style!</p>
                             </div>
                         </div>
@@ -444,7 +444,7 @@
                                 </div>
                             </div>
 
-                            <div class="mt-4 space-y-6 text-base italic text-gray-600">
+                            <div class="mt-4 space-y-6 text-base italic text-gray-600 dark:text-gray-400">
                                 <p>I love how versatile this bag is. It can hold anything ranging from cookies that come in trays to cookies that come in tins.</p>
                             </div>
                         </div>
@@ -460,8 +460,8 @@
 
 
     <!-- product-detail -->
-    <div class="container grid grid-cols-2 gap-6">
-        <div class="flex flex-col justify-center items-center" wire:ignore>
+    <div class="container grid grid-cols-2 gap-6 dark:text-white">
+        <div class="flex flex-col items-center justify-center" wire:ignore>
             <div class="w-full aspect-w-1 aspect-h-1">
                 <div class="ta-gallery ta-gallery-aspect-hd" x-data="taGallery" data-item="ta-gallery-element"
                     data-size="ta-gallery-size" data-active="ta-gallery-element-active" data-lazy="ta-gallery-image-lazy"
@@ -517,7 +517,7 @@
         </div>
 
         <div>
-            <h2 class="text-3xl font-medium uppercase mb-2">{{ $product->title }}</h2>
+            <h2 class="mb-2 text-3xl font-medium uppercase">{{ $product->title }}</h2>
             <div class="flex items-center mb-4">
                 <div class="flex gap-1 text-sm text-yellow-400">
                     <x-review-star :review="3.9">
@@ -535,10 +535,10 @@
                         </x-slot>
                     </x-review-star>
                 </div>
-                <div class="text-xs text-gray-500 ml-3">(150 Reviews)</div>
+                <div class="ml-3 text-xs text-gray-500 dark:text-gray-100">(150 Reviews)</div>
             </div>
             <div class="space-y-2">
-                <p class="text-gray-800 font-semibold space-x-2">
+                <p class="space-x-2 font-semibold text-gray-800 dark:text-gray-300">
                     <span>Availability: </span>
                     @if ($variant->stock != 0)
                         <span class="text-green-600">In Stock</span>
@@ -548,22 +548,23 @@
                 </p>
 
                 <p class="space-x-2">
-                    <span class="text-gray-800 font-semibold">Category: </span>
-                    <span class="text-gray-600">{{ $product->category->name }}</span>
+                    <span class="font-semibold text-gray-800 dark:text-gray-300">Category: </span>
+                    <span class="text-gray-600 dark:text-gray-400">{{ $product->category->name }}</span>
                 </p>
                 <p class="space-x-2">
-                    <span class="text-gray-800 font-semibold">SKU: </span>
-                    <span class="text-gray-600">{{ $variant->sku }}</span>
+                    <span class="font-semibold text-gray-800 dark:text-gray-300">SKU: </span>
+                    <span class="text-gray-600 dark:text-gray-400">{{ $variant->sku }}</span>
                 </p>
             </div>
             <div class="flex align-center ">
                 <p class="text-4xl font-bold tracking-tight text-green-900 dark:text-gray-100">
                     {{ format_money($variant->final_price) }}</p>
-                <p class="ml-3 text-base font-bold text-gray-500"><span
+                <p class="ml-3 text-base font-bold text-gray-500 dark:text-gray-100"><span
                         class="pr-1 line-through">{{ format_money($variant->sale_price) }}</span>({{ $variant->save_percent }}
                     {{ __('common.save') }})</p>
             </div>
-            <p class="text-xs text-gray-500">{{ __('product.local_tax_included') }}</p>
+            <p class="text-xs text-gray-500 dark:text-gray-100">{{ __('product.local_tax_included') }}</p>
+
 
 
 
@@ -573,23 +574,29 @@
                 <fieldset x-data="{ color: @entangle('color').defer }" class="mt-2">
                     <legend class="sr-only"> Choose a color </legend>
                     <div class="flex items-center space-x-3">
-                        @foreach ($product->variants as $key => $option)
-                            <label
-                                class="-m-0.5 relative rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-rose-600"
-                                :class="{
-                                    'ring-2 ring-offset-2': color ===
-                                        '{{ $option->color->name }}',
-                                    'cursor-not-allowed': color === 'disabled'
-                                }">
-                                <input x-bind:disabled="color === 'disabled'" type="radio" x-model="color"
-                                    name="color-choice" value="{{ $option->color->name }}" class="sr-only"
-                                    aria-labelledby="color-choice-0-label"
-                                    wire:click="changeVariant('color','{{ $option->color->name }}', '{{ $option->id }}')">
-                                <span id="color-choice-0-label" class="sr-only"> {{ $option->color->name }} </span>
-                                <!-- I don't know why, using blade {{}} syntax here inside style shows warning -->
-                                <span aria-hidden="true" class="w-8 h-8 border border-gray-400 rounded-full shadow"
-                                    style="background:<?= $option->color->name ?>"></span>
-                            </label>
+                        @foreach ($variant_options as $option)
+                            @if ($c_val != $option->color->name)
+                                <label
+                                    class="-m-0.5 relative rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-rose-600"
+                                    :class="{
+                                        'ring-2 ring-offset-2': color ===
+                                            '{{ $option->color->name }}'
+                                    }">
+                                    <input type="radio" x-model="color" name="color-choice"
+                                        value="{{ $option->color->name }}" class="sr-only"
+                                        aria-labelledby="color-choice-0-label"
+                                        wire:click="changeVariant('color','{{ $option->color->name }}', '{{ $option->id }}')">
+                                    <span id="color-choice-0-label" class="sr-only"> {{ $option->color->name }} </span>
+                                    <!-- I don't know why, using blade {{}} syntax here inside style shows warning -->
+
+                                    <span aria-hidden="true" class="w-8 h-8 border border-gray-400 rounded-full shadow"
+                                        style="background:<?= $option->color->name ?>"></span>
+
+                                </label>
+                            @endif
+                            @php
+                                $c_val = $option->color->name;
+                            @endphp
                         @endforeach
                     </div>
                 </fieldset>
@@ -599,15 +606,16 @@
             <!-- Size picker -->
             <div class="mt-6">
                 <div class="flex items-center">
-                    <h2 class="font-medium text-gray-900 dark:text-gray-100">{{ __('common.size') }}</h2>
+                    <h2 class="font-medium text-gray-900 dark:text-gray-100 dark:bg-gray-800">{{ __('common.size') }}
+                    </h2>
                     <a href="#"
                         class="ml-2 text-sm font-medium text-rose-600 dark:text-rose-200 hover:dark:text-rose-300 hover:text-rose-500">({{ __('product.sizing_info') }})</a>
                 </div>
 
                 <fieldset x-data="{ size: @entangle('size').defer }" class="mt-2">
                     <legend class="sr-only"> Choose a size </legend>
-                    <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                        @foreach ($product->variants as $key => $option)
+                    <div class="grid grid-cols-3 gap-3 sm:grid-cols-6 ">
+                        @foreach ($variant_options as $option)
                             <label
                                 class="flex items-center justify-center px-2 py-3 text-sm font-medium uppercase border rounded-md shadow-sm cursor-pointer sm:flex-1 focus:outline-none"
                                 :class="{
@@ -618,39 +626,37 @@
                                     'bg-rose-600 border-transparent text-white hover:bg-rose-700': (
                                         size === '{{ $option->size->name }}'
                                     ),
-                                    'bg-white border-gray-200 text-gray-900 hover:bg-gray-50': !(size ===
-                                        '{{ $option->size->name }}')
+                                    'bg-white border-gray-200 dark:bg-gray-800 dark:text-gray-100 text-gray-900 hover:bg-gray-50':
+                                        !(size ===
+                                            '{{ $option->size->name }}')
                                 }">
-                                <input :class="{ 'cursor-not-allowed': size === 'disabled' }"
-                                    :disabled="size === 'disabled'" type="radio" x-model="size" name="size-choice"
+                                <input type="radio" x-model="size" name="size-choice"
                                     value="{{ $option->size->name }}" class="sr-only"
                                     aria-labelledby="size-choice-0-label"
                                     wire:click="changeVariant('size','{{ $option->size->name }}', '{{ $option->id }}')">
-                                <span id="size-choice-0-label">{{ $option->size->name }}</span>
+                                @if ($c_val != $option->size->name)
+                                    <span class="" id="size-choice-0-label">{{ $option->size->name }}</span>
+                                @endif
                             </label>
+                            @php
+                                $S_val = $option->color->name;
+                            @endphp
                         @endforeach
                     </div>
                 </fieldset>
             </div>
 
-            <div class="mt-4">
-                <h3 class="text-sm text-gray-800 uppercase mb-1">Quantity</h3>
-                <div class="flex border border-gray-300 text-gray-600 divide-x divide-gray-300 w-max">
-                    <div class="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">-</div>
-                    <div class="h-8 w-8 text-base flex items-center justify-center">4</div>
-                    <div class="h-8 w-8 text-xl flex items-center justify-center cursor-pointer select-none">+</div>
-                </div>
-            </div>
 
-            <div class="mt-6 flex gap-3 border-b border-gray-200 pb-5 pt-5">
+
+            <div class="flex gap-3 pt-5 pb-5 mt-6 border-b border-gray-200">
                 <button @click.prevent="Livewire.emit('addToCart', '{{ $variant->id }}')" type="button"
-                    class="bg-rose-500 border border-rose-500 text-white px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:bg-transparent hover:text-rose-500 transition">
+                    class="flex items-center gap-2 px-8 py-2 font-medium text-white uppercase transition border rounded bg-rose-500 border-rose-500 hover:bg-transparent hover:text-rose-500">
                     <i class="fa-solid fa-bag-shopping"></i> Add to cart
                 </button>
-                <a href="#"
-                    class="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:text-rose-500 transition">
+                {{-- <a href="#"
+                    class="flex items-center gap-2 px-8 py-2 font-medium text-gray-600 uppercase border border-gray-300 rounded trans400on dark:text-gray-100 hover:text-rose-500">
                     <i class="fa-solid fa-heart"></i> Wishlist
-                </a>
+                </a> --}}
             </div>
 
         </div>
@@ -659,9 +665,10 @@
 
     <!-- description -->
     <div class="container pb-16">
-        <h3 class="border-b border-gray-200 font-roboto text-gray-800 pb-3 font-medium">Product details</h3>
+        <h3 class="pb-3 font-medium text-gray-800 border-b border-gray-200 dark:text-gray-300 font-roboto">Product
+            details</h3>
         <div class="w-3/5 pt-6">
-            <div class="text-gray-600">
+            <div class="text-gray-600 dark:text-gray-400">
                 {!! $product->description !!}
             </div>
 
@@ -669,7 +676,7 @@
     </div>
     <!-- ./description -->
 
-    <section aria-labelledby="reviews-heading">
+    {{-- <section aria-labelledby="reviews-heading">
         <div
             class="max-w-2xl px-4 py-24 mx-auto sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-x-8 lg:py-32 lg:px-8">
             <div class="lg:col-span-4">
@@ -859,7 +866,7 @@
 
                 <div class="mt-10">
                     <h3 class="text-lg font-medium text-gray-900">{{ __('product.share_thoughts') }}</h3>
-                    <p class="mt-1 text-sm text-gray-600">{{ __('product.if_you_used') }}</p>
+                    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{{ __('product.if_you_used') }}</p>
 
                     <a href="#"
                         class="inline-flex items-center justify-center w-full px-8 py-2 mt-6 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-md hover:bg-gray-50 sm:w-auto lg:w-full">{{ __('product.write_review') }}</a>
@@ -925,7 +932,7 @@
                                 </div>
                             </div>
 
-                            <div class="mt-4 space-y-6 text-base italic text-gray-600">
+                            <div class="mt-4 space-y-6 text-base italic text-gray-600 dark:text-gray-400">
                                 <p>This is the bag of my dreams. I took it on my last vacation and was able to fit an
                                     absurd
                                     amount of snacks for the many long and hungry flights.</p>
@@ -996,7 +1003,7 @@
                                 </div>
                             </div>
 
-                            <div class="mt-4 space-y-6 text-base italic text-gray-600">
+                            <div class="mt-4 space-y-6 text-base italic text-gray-600 dark:text-gray-400">
                                 <p>Before getting the Ruck Snack, I struggled my whole life with pulverized snacks,
                                     endless
                                     crumbs, and other heartbreaking snack catastrophes. Now, I can stow my snacks with
@@ -1068,7 +1075,7 @@
                                 </div>
                             </div>
 
-                            <div class="mt-4 space-y-6 text-base italic text-gray-600">
+                            <div class="mt-4 space-y-6 text-base italic text-gray-600 dark:text-gray-400">
                                 <p>I love how versatile this bag is. It can hold anything ranging from cookies that come
                                     in
                                     trays to cookies that come in tins.</p>
@@ -1079,12 +1086,12 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     -
     <!-- related product -->
     <div class="container pb-16">
-        <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">Related products</h2>
+        <h2 class="mb-6 text-2xl font-medium text-gray-800 uppercase dark:text-gray-300">Related products</h2>
         <livewire:relative-products />
     </div>
     <!-- ./related product -->

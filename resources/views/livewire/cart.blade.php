@@ -173,7 +173,7 @@
             </div>
         </div>
         <a href="{{ route('shop.checkout') }}"
-            class="flex items-center justify-center px-3 py-2 mt-4 text-sm font-medium text-white uppercase bg-rose-600 rounded  focus:outline-none active:bg-transparent hover:bg-transparent hover:text-rose-500 hover:border-rose-500 hover:border"
+            class="flex items-center justify-center px-3 py-2 mt-4 text-sm font-medium text-white uppercase rounded bg-rose-600 focus:outline-none active:bg-transparent hover:bg-transparent hover:text-rose-500 hover:border-rose-500 hover:border"
             {{ $total > 0 ? '' : 'disabled' }}>
             <span>{{ __('cart.checkout') }}</span>
             <svg class="w-5 h-5 mx-2" fill="none" stroke-linecap="round" stroke-linejoin="round"

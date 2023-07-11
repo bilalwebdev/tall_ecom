@@ -98,10 +98,6 @@ class Product extends Model implements HasMedia
         return $this->hasMany(Variant::class);
     }
 
-    public function variantOptions()
-    {
-        return $this->hasMany(VariantOption::class);
-    }
 
     public function images()
     {

@@ -98,13 +98,13 @@ class Checkout extends Component
                 'max:255',
                 Rule::unique('users')->ignore($user?->id),
             ],
+
             'firstname' => 'required|min:3|max:100',
             'lastname' => 'nullable|min:3|max:100',
             'address1' => 'required|string',
             'address2' => 'nullable|string',
             'city' => 'required|string',
             'country' => 'required|string',
-            'phone' => 'required',
             'state' => 'nullable|string',
             'postcode' => 'nullable|string',
         ];
@@ -164,11 +164,11 @@ class Checkout extends Component
                     'lastname' => $customer->lastname,
                     'phone' => $customer->phone,
                 ]);
-            }
 
-            if (!$user->customer->address->isEmpty()) {
-                $this->addresses = $customer->address;
-                $this->add_new_address = false;
+                if ($customer->address) {
+                    $this->addresses = $customer->address;
+                    $this->add_new_address = false;
+                }
             }
         }
     }
@@ -243,18 +243,22 @@ class Checkout extends Component
         if (Auth::check()) {
             $user = Auth::user();
         } else {
-            $this->validateOnly('email');
-            $user =  User::create(['name' => $this->firstname, 'email' => $this->email, 'password' => Str::password(10)]);
-            $this->newUserCreated = true;
+
+            return redirect('login');
         }
-
-
-
-        if ($user->customer->exists()) {
+        if ($user->customer?->exists()) {
+            // dd('hrtr');
             $customer = $user->customer;
+            $this->validate([
+                'phone' =>  'required|unique:customers,phone,' . $customer->id,
+            ]);
         } else {
             $this->validateOnly('firstname');
             $this->validateOnly('lastname');
+
+            $this->validate([
+                'phone' =>  'required|unique:customers,phone,',
+            ]);
 
             $customer = Customer::create([
                 'user_id' => $user->id,
@@ -263,8 +267,6 @@ class Checkout extends Component
                 'phone' => $this->phone,
             ]);
         }
-
-
 
         // if customer wants to add new address
         if ($this->add_new_address) {
@@ -384,9 +386,22 @@ class Checkout extends Component
 
     protected function sendReset($email)
     {
-        $status = $this->broker()->sendResetLink(['email' => $email]);
-        // "passwords.sent"
-        $this->sendingResetLinkStatus = $status;
+
+        $this->validate([
+            'email' => ['required', 'email'],
+        ]);
+
+        // We will send the password reset link to this user. Once we have attempted
+        // to send the link, we will examine the response then see the message we
+        // need to show to the user. Finally, we'll send out a proper response.
+        $status = Password::sendResetLink(
+            [$email]
+        );
+
+        return $status == Password::RESET_LINK_SENT
+            ? back()->with('status', __($status))
+            : back()->withInput($email)
+            ->withErrors(['email' => __($status)]);
     }
 
     protected function full_checkout()

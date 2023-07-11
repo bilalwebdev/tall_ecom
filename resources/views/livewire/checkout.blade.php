@@ -7,9 +7,9 @@
         <form class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16" @submit.prevent>
             <div>
                 <div>
-                    <h2 class="text-lg font-medium text-gray-900 dark:text-white">{{ __('checkout.contact_info') }}</h2>
-
                     <div class="mt-4">
+                        <h2 class="text-lg font-medium text-gray-900 dark:text-white">{{ __('checkout.contact_info') }}
+                        </h2>
                         @auth
                             <p class="dark:text-gray-200">{{ __('form.email') }}: {{ $email }}</p>
                             <p class="dark:text-gray-200">{{ __('form.phone') }}: {{ $phone }}</p>
@@ -81,13 +81,13 @@
                     @else
                         <div class="grid grid-cols-1 mt-4 gap-y-6 sm:grid-cols-2 sm:gap-x-4"
                             x-effect="initPhoneInput()">
-                            <x-form.input name="firstname" label="{{ __('form.firstname') }}"
+                            <x-form.input required name="firstname" label="{{ __('form.firstname') }} "
                                 autocomplete="given-name" />
-                            <x-form.input name="lastname" label="{{ __('form.lastname') }}"
+                            <x-form.input required name="lastname" label="{{ __('form.lastname') }}"
                                 autocomplete="family-name" />
 
                             <div class="sm:col-span-2">
-                                <x-form.input name="address1" label="{{ __('form.address') }}"
+                                <x-form.input required name="address1" label="{{ __('form.address') }}"
                                     autocomplete="street-address" />
                             </div>
 
@@ -95,9 +95,9 @@
                                 <x-form.input name="address2" label="{{ __('form.apartment') }}" />
                             </div>
 
-                            <x-form.input name="city" label="{{ __('form.city') }}" />
+                            <x-form.input required name="city" label="{{ __('form.city') }}" />
 
-                            <x-form.dropdown name="country" label="{{ __('form.country') }}">
+                            <x-form.dropdown required name="country" label="{{ __('form.country') }}">
                                 <option value="">{{ __('checkout.select_country') }}</option>
                                 @foreach (['Hungary', 'United States', 'Pakistan', 'Canada', 'Mexico'] as $country)
                                     <option value="{{ $country }}">{{ $country }}</option>
@@ -106,11 +106,11 @@
 
 
 
-                            <x-form.input name="state" label="{{ __('form.state') }}" />
-                            <x-form.input name="postcode" label="{{ __('form.postal_code') }}" />
+                            <x-form.input required name="state" label="{{ __('form.state') }}" />
+                            <x-form.input required name="postcode" label="{{ __('form.postal_code') }}" />
 
                             <div class="sm:col-span-2">
-                                <x-form.input id="phone" name="phone" label="{{ __('form.phone') }}"
+                                <x-form.input required id="phone" name="phone" label="{{ __('form.phone') }}"
                                     autocomplete="tel" />
                             </div>
                             @guest()
@@ -177,14 +177,14 @@
                         <legend class="sr-only">Payment type</legend>
                         <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
                             <!-- <div class="flex items-center">
-                            <input id="creditcard" value="creditcard" name="payment-type" wire:model.lazy="payment_method" type="radio" checked class="w-4 h-4 text-rose-600 border-gray-300 focus:ring-rose-500">
+                            <input id="creditcard" value="creditcard" name="payment-type" wire:model.lazy="payment_method" type="radio" checked class="w-4 h-4 border-gray-300 text-rose-600 focus:ring-rose-500">
                             <label for="creditcard" class="block ml-3 text-sm font-medium text-gray-700 dark:text-white">{{ __('checkout.credit_card') }}</label>
                         </div> -->
 
                             <div class="flex items-center">
                                 <input id="stripe" value="stripe" name="payment-type"
                                     wire:model.lazy="payment_method" type="radio"
-                                    class="w-4 h-4 text-rose-600 border-gray-300 focus:ring-rose-500">
+                                    class="w-4 h-4 border-gray-300 text-rose-600 focus:ring-rose-500">
                                 <label for="stripe"
                                     class="block ml-3 text-sm font-medium text-gray-700 dark:text-white">{{ __('checkout.e_pay') }}</label>
                             </div>
@@ -193,7 +193,7 @@
                             <div class="flex items-center">
                                 <input id="cod" value="cod" name="payment-type"
                                     wire:model.lazy="payment_method" type="radio"
-                                    class="w-4 h-4 text-rose-600 border-gray-300 focus:ring-rose-500">
+                                    class="w-4 h-4 border-gray-300 text-rose-600 focus:ring-rose-500">
                                 <label for="cod"
                                     class="block ml-3 text-sm font-medium text-gray-700 dark:text-white">{{ __('checkout.cash_on_delivery') }}</label>
                             </div>
@@ -448,7 +448,7 @@
         <div class="px-4 py-2 mx-4 mt-4 mb-auto text-center border-2 border-dashed dark:border-gray-400">
             <img src="{{ asset('images/cart-empty.svg') }}" class="w-64 h-64 mx-auto" alt="cart is empty" />
             <a href="{{ url('/') }}"
-                class="px-4 py-3 mx-auto my-8 text-base font-medium text-center text-white bg-rose-600 border border-transparent rounded-md shadow-sm hover:bg-rose-700 focus:outline-none  focus:ring-offset-2 focus:ring-offset-gray-50">{{ __('checkout.continue_shopping') }}</a>
+                class="px-4 py-3 mx-auto my-8 text-base font-medium text-center text-white border border-transparent rounded-md shadow-sm bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-offset-2 focus:ring-offset-gray-50">{{ __('checkout.continue_shopping') }}</a>
             <p class="mt-4 text-lg font-semibold text-gray-900 dark:text-white">{{ __('cart.cart_empty') }}</p>
             <p class="mt-2 text-base font-normal text-gray-500 dark:text-gray-300">{{ __('cart.not_added_yet') }}</p>
         </div>

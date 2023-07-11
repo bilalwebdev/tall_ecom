@@ -433,8 +433,6 @@
                             class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800 dark:text-gray-100 dark:hover:text-gray-300">Home</a>
 
 
-                        <a href=""
-                            class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800 dark:text-gray-100 dark:hover:text-gray-300">Categories</a>
 
 
                         <a href="{{ route('shop.index') }}"

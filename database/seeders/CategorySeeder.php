@@ -41,7 +41,7 @@ class CategorySeeder extends Seeder
         foreach ($data as $key => $value) {
             $category = Category::create(['name' => $key]);
             foreach ($value as $cat) {
-                Category::create(['name' => $cat, 'parent_id' => $category->id]);
+                Category::create(['name' => $key . ' ' . $cat, 'parent_id' => $category->id]);
             }
         }
     }

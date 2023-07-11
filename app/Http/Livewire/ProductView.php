@@ -14,23 +14,35 @@ class ProductView extends Component
     public $variant;
     public $variant_id;
     public $variant_options;
+    public $option;
+    public $s_val;
+    public $c_val;
 
     public function mount(Product $product)
     {
         $product->load(['category:id,name,slug', 'media', 'variant', 'variants', 'variants.options']);
         $this->product = $product;
         $this->variant = $product->variant;
-
-        // dd($this->variant);
+        $this->variant_options = $product->variants;
     }
 
     public function changeVariant($key, $value, $id)
     {
-        $variantOptions = collect($this->variant_options);
-        $otherKey = $key === 'color' ? 'size' : 'color';
-        $variant = collect($variantOptions->get($otherKey, collect()))->firstWhere('variant_id', $id);
-        $variantValue = $variant['value'] ?? 'disabled';
-        $this->fill([$key => $value, 'variant_id' => $id, $otherKey => $variantValue]);
+
+
+        if ($key == 'size') {
+            $size = Variant::find($id)->size;
+            $this->variant_options = Variant::where('size_id', $size->id)
+                ->where('product_id', $this->product->id)
+                ->get();
+        }
+
+        if ($key == 'color') {
+            $color = Variant::find($id)->color;
+            $this->variant_options = Variant::where('color_id', $color->id)
+                ->where('product_id', $this->product->id)
+                ->get();
+        }
         $this->loadVariant($id);
     }
 
